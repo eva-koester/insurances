@@ -3,22 +3,12 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
+import cleaning
 
-df = pd.read_csv('beschwerden_all.csv')
+df = cleaning.load_clean_data()
+
 sns.set(style='dark', rc={'font.family':'sans-serif','font.sans-serif': ['Cambria'],'axes.labelsize':18,'axes.titlesize':20})
 
-# data cleaning:
-# remove duplicates of year 2007 from the dataframe: create a new df that only includes year 2007, drop the duplicate
-# remove all entries with year 2007 from the normal df, coerce the two df's
-# make sure that all insurances with the same number have the same name
-df_year_2007 = df[df['Jahr'] == 2007]
-df_year_2007 = df_year_2007.drop_duplicates("Nummer", keep="first")
-df = df[df['Jahr'] != 2007]
-df = pd.concat([df, df_year_2007])
-grouped = df.groupby('Nummer')
-for nummer, group in grouped:
-    name = group['Name'].iloc[0]
-    df.loc[df['Nummer'] == nummer, 'Name'] = name
 
 # add number of years as a new column and assign value 1 to it, then summarize complaints, insured persons
 # and number of years per insurance
