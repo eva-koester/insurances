@@ -15,31 +15,7 @@ print(len(df))
 grouped = df.groupby('Nummer') ##--> Nummer wird zu name
 for nummer, group in grouped:
     name = group['Name'].iloc[0]
-    #print(nummer, name)
-    #print(group)
     df.loc[df['Nummer'] == nummer, 'Name'] = name
 
-#print(df)
+
 print(df.sort_values('Nummer'))
-
-
-#print(df)
-
-#for name, group in grouped:
- #   if name == 4001:
-        #entry = grouped['Name']
-        #print(entry)
-   # else:
-   #     print('babbel')
-
-#for name, group in grouped:
-    #print(name)
-    #print(group)
-
- #   for entry in
-#   group['Name'] = group.iloc[0, 1]
- #
-   #print(len(group))
-#grouped.get_group(4143)
-#print(grouped)
-
