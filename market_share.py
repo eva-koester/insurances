@@ -42,7 +42,6 @@ for index, row in df_2002.iterrows():
     if row["Nummer"] in df_2017["Nummer"].values:
         pass
     else:
-        #print('snabb')
         row["Versicherte"] = 0
         row["Beschwerden"] = 0
         if row["Nummer"] in df_2002 != 4018:
@@ -75,7 +74,6 @@ g.set(xlabel='Insured Persons (Mio)', ylabel='Insurance Name')
 plt.title('Market Share in 2002')
 plt.show()
 #plt.close()
-#print("We've got data from " + str(len(df_2002)) + " insurances in 2002.")
 
 # plot market share in 2017 in the same order as market share in 2002
 f = sns.barplot(x="Versicherte", y="Name", data=df_2017)
@@ -83,32 +81,3 @@ g.set(xlabel='Insured Persons (Mio)', ylabel='Insurance Name')
 plt.title('Market Share in 2017')
 plt.show()
 #plt.close()
-
-#df_full=merge(df_2002, df_2017, by = intersect("Name"))
-
-
-
-#print("We've got data from " + str(len(df_2017)) + " insurances in 2017.")
-
-
-## Probleme:
-# for entry, row in df_2017.iterrows():
-#   print(row['Nummer'])
-#  #print(entry)
-#  for number in df_2017['Nummer']:
-#     if number in df_2002['Nummer']:
-#        print('schnabbel')
-
-# for entry, row in df_2017.iterrows():
-# if row['Nummer']
-#  if df_2017['Nummer'] == 4034 in df_2002['Nummer']:
-#   print('babbel')
-# if df_2017.loc[entry, 'Nummer'] in df_2002['Nummer']:
-# print('schnabbel')
-
-## das habe ich versucht:
-#for entry in df_2017['Nummer']:
- #   if entry in df_2002['Nummer']:
-  #      df_2017['order'] = df_2002['order']
-#print(df_2017['order'])
-       # df_2017['order'] == df_2002['order']
