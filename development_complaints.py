@@ -5,7 +5,9 @@ import seaborn as sns
 import cleaning
 
 df = cleaning.load_clean_data()
-sns.set(style="ticks", rc={'font.family':'sans-serif','font.sans-serif': ['Cambria'],'axes.labelsize':18,'axes.titlesize':20})
+sns.set(style="ticks", context='notebook', rc={'font.family':'sans-serif','font.sans-serif': ['Cambria'],
+                                               'axes.labelsize':18,'axes.titlesize':20, "lines.linewidth": 2.5})
+#sns.axes_style(rc={'axes.grid': True, 'axes.spines.bottom': True, 'xtick.color': 'red'})
 #sns.set_style("dark")
 
 # adjust the scaling of insured persons
@@ -24,8 +26,16 @@ g=sns.lineplot(x='Jahr', y='Beschwerden', data=df_sum, ax=ax2, color='crimson')
 sns.despine(right=False)
 ax1.set_ylabel('Insured Persons (Mio)', color='darkgreen')
 ax2.set_ylabel('Complaints', color='crimson')
+#ax.set_xlabel('year')
 ax1.tick_params('y', colors='darkgreen')
 ax2.tick_params('y', colors='crimson')
+
+
+# das hier rotiert die y-ticks!
+#for tick in ax1.get_yticklabels():
+#    tick.set_rotation(45)
+#https://stackoverflow.com/questions/10998621/rotate-axis-text-in-python-matplotlib
+
 #sns.axes_style(axes.facecolor='darkgreen')
 #plt.xticks(rotation=45)
 #g.set_xticklabels(rotation=30)
